@@ -7,16 +7,16 @@ function App() {
   
   const [boxes, setBoxes] = useState([]);
   
-  
 
   return (
     <div className='main-container'>
       <ColorForm setBoxes={setBoxes} boxes={boxes}/>
+
       <div className='box-container'>
                 {boxes.map((color, i) => {
                     return (
                         <div key={i}
-                            style={{ backgroundColor: color, width: 100, height: 100, marginRight: 10 }} className='box'>
+                            style={{ backgroundColor: color, width: 200, height: 200, marginRight: 10 }} className='box'>
                         </div>
                     );
                 })}
