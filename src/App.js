@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+// If you need to keep track of something that is changing, USE STATE
+import React, { useState } from 'react';
 import './App.css';
+import ColorForm from './components/ColorForm';
 
 function App() {
+  
+  const [boxes, setBoxes] = useState([]);
+  
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='main-container'>
+      <ColorForm setBoxes={setBoxes} boxes={boxes}/>
+      <div className='box-container'>
+                {boxes.map((color, i) => {
+                    return (
+                        <div key={i}
+                            style={{ backgroundColor: color, width: 100, height: 100, marginRight: 10 }} className='box'>
+                        </div>
+                    );
+                })}
+
+      </div>
     </div>
+      
   );
 }
 
